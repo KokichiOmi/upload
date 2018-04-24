@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width">  <!-- head内にこのタグ設定を追記する -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="container">
+    <header>
+      <ul class="nav nav-pills">
+        <li role="presentation"><a href="#">遊ぶ</a></li>
+        <li role="presentation"><a href="#">学ぶ</a></li>
+        <li role="presentation"><a href="#">食べる</a></li>
+        <li role="presentation"><a href="#">くつろぐ</a></li>
+      </ul>
+    </header>  
+    <%= yield %>
+    <footer>
+      <p>GW ジャパン 株式会社</p>
+      <p>© 2018 Copyright GW Japan Corp.</p>
+    </footer>
+  </div>
+  </body>
+</html>
