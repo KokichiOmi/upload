@@ -12,6 +12,9 @@
     <div class="container">
       <%= render 'layouts/header' %>
       <div class="main_field"></div>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>

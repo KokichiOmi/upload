@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   #get 'stock/index'
   #get 'blogs/index'
   get 'blogs', to:'blogs#index'
@@ -9,4 +11,8 @@ Rails.application.routes.draw do
       post:confirm
     end
   end
+  resources :users, only: [:new, :create, :show]
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
 end
