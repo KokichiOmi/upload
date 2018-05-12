@@ -1,8 +1,10 @@
 <h1><%= @user.name %>のページ</h1>
 
+<div>
 <p>メールアドレス: <%= @user.email %></p>
 
 <% @favorites_blogs = @user.favorite_blogs %>
+  <div>
   <% @favorites_blogs.each do |favorites_blog| %>
     <div class="col-xs-12 col-md-6 blog-panel">
       <h2><%= favorites_blog.title%></h2>
@@ -13,3 +15,5 @@
       </div>
     </div>
   <% end %>
+  </div>
+</div>
