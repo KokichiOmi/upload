@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:edit, :show, :new, :destroy]
+  
   def index
     @blogs = Blog.all
     #raise
@@ -20,7 +22,7 @@ class BlogsController < ApplicationController
   
   def destroy
     @blog.destroy
-  redirect_to blogs_path, notice:"ブログを削除しました！"
+    redirect_to blogs_path, notice:"ブログを削除しました！"
   end
   
   def edit
@@ -54,6 +56,13 @@ class BlogsController < ApplicationController
   def set_blog
     @blog = Blog.find(params[:id])
   end
-  
+
+  # ログイン済みユーザーかどうか確認
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "ログインしてください！"
+      redirect_to login_url
+    end
+  end
   
 end
