@@ -2,6 +2,11 @@
 
 <div>
 <p>メールアドレス: <%= @user.email %></p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @user.image %>
+</p>
+
 
 <% @favorites_blogs = @user.favorite_blogs %>
   <div>
